@@ -1,11 +1,16 @@
 import Image from "next/image";
 
 import mafia from "@/public/images/home/mafia.jpeg";
-import mountain1 from "@/public/images/home/moutain1.jpg";
-import mountain2 from "@/public/images/home/mountain2.jpg";
-import mountain3 from "@/public/images/home/mountain3.jpg";
+import beer from "@/public/images/home/beer.jpg";
+import sandro from "@/public/images/home/sandro.jpeg";
+import climb from "@/public/images/home/climb.jpeg";
+import hike from "@/public/images/home/hike.jpg";
 import halbmara from "@/public/images/home/halbmara.jpeg";
 import brille from "@/public/images/home/brille.jpg";
+import snow from "@/public/images/home/snow.jpeg";
+import luigi from "@/public/images/home/luigi.jpg";
+import sven from "@/public/images/home/sven.jpg";
+import komorebi from "@/public/images/home/komorebi.jpeg";
 
 export const IntroImageSection = () => {
   // --- RENDER ---
@@ -25,7 +30,7 @@ export const IntroImageSection = () => {
       <div className="relative h-80 mb-4 sm:mb-0">
         <Image
           alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
-          src={mountain1}
+          src={hike}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
@@ -35,7 +40,7 @@ export const IntroImageSection = () => {
       <div className="relative h-40 sm:h-80 sm:mb-4">
         <Image
           alt="Me standing on stage at Reactathon delivering the keynote"
-          src={halbmara}
+          src={sven}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
@@ -45,7 +50,7 @@ export const IntroImageSection = () => {
       <div className="relative h-40 mb-4 sm:mb-0">
         <Image
           alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-          src={mountain2}
+          src={luigi}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
@@ -54,7 +59,7 @@ export const IntroImageSection = () => {
       </div>
       <div className="relative h-40 mb-4">
         <Image
-          alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community"
+          alt="Brille"
           src={brille}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
@@ -65,7 +70,7 @@ export const IntroImageSection = () => {
       <div className="relative h-80">
         <Image
           alt="My badge on top of a pile of badges from a Vercel meetup we held"
-          src={mountain3}
+          src={snow}
           fill
           sizes="(min-width: 768px) 213px, 33vw"
           priority
@@ -76,7 +81,7 @@ export const IntroImageSection = () => {
       <div className="relative h-40 mb-4">
         <Image
           alt="Me speaking on stage at React Summit about the future of Next.js"
-          src={mafia}
+          src={beer}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
@@ -85,8 +90,8 @@ export const IntroImageSection = () => {
       </div>
       <div className="relative h-80 mb-4 sm:mb-0">
         <Image
-          alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
-          src={mountain1}
+          alt="Sandro Big"
+          src={sandro}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
@@ -95,7 +100,7 @@ export const IntroImageSection = () => {
       </div>
       <div className="relative h-40 sm:h-80 sm:mb-4">
         <Image
-          alt="Me standing on stage at Reactathon delivering the keynote"
+          alt="Halbmara"
           src={halbmara}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
@@ -103,20 +108,20 @@ export const IntroImageSection = () => {
           className="rounded-lg object-cover object-top sm:object-center"
         />
       </div>
-      <div className="relative h-40 mb-4 sm:mb-0">
+      {/* <div className="relative h-40 mb-4 sm:mb-0">
         <Image
           alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-          src={mountain2}
+          src={sandro}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
           className="rounded-lg object-cover"
         />
-      </div>
-      <div className="relative h-40 mb-4">
+      </div> */}
+      <div className="relative h-40 sm:h-80 sm:mb-4">
         <Image
-          alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community"
-          src={brille}
+          alt="Komorebi"
+          src={komorebi}
           fill
           sizes="(max-width: 768px) 213px, 33vw"
           priority
@@ -126,7 +131,7 @@ export const IntroImageSection = () => {
       <div className="relative h-80">
         <Image
           alt="My badge on top of a pile of badges from a Vercel meetup we held"
-          src={mountain3}
+          src={climb}
           fill
           sizes="(min-width: 768px) 213px, 33vw"
           priority

@@ -4,6 +4,8 @@ import Link from "next/link";
 export const WorkIntro = () => {
   return (
     <>
+      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
+
       <p>
         On a mission to help fill{" "}
         <Link href="https://www.workwise.io" target="_blank">
