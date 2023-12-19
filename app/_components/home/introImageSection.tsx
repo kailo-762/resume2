@@ -128,12 +128,14 @@ export const IntroImageSection = () => {
           className="rounded-lg object-cover"
         />
       </div>
+
+      {/* before: 58.1kb, 566ms */}
       <div className="relative h-80">
         <Image
           alt="My badge on top of a pile of badges from a Vercel meetup we held"
           src={climb}
           fill
-          sizes="(min-width: 768px) 213px, 33vw"
+          sizes="(min-width: 768px) 23px, 33vw"
           priority
           className="rounded-lg object-cover"
         />

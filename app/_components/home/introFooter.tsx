@@ -16,21 +16,24 @@ const socialNetworks = [
 ];
 
 export const IntroFooter = () => {
+  const numberOfSocialNetworks = socialNetworks.length;
+
+  // --- RENDER ---
+
   return (
-    <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
+    <div className="flex">
       {socialNetworks.map((socialNetwork) => (
-        <li>
-          <a
-            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
-            rel="noopener noreferrer"
-            target="_blank"
-            href={socialNetwork.link}
-          >
-            <ArrowIcon />
-            <p className="h-7 ml-2">{socialNetwork.name}</p>
-          </a>
-        </li>
+        <a
+          className={`flex w-1/${numberOfSocialNetworks} items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all`}
+          rel="noopener noreferrer"
+          target="_blank"
+          href={socialNetwork.link}
+        >
+          <ArrowIcon />
+
+          <p className="h-7 ml-2">{socialNetwork.name}</p>
+        </a>
       ))}
-    </ul>
+    </div>
   );
 };

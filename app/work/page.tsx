@@ -1,15 +1,15 @@
+import { WORK_DATA } from "@/app/_components/work/workData";
 import { WorkHeader } from "@/app/_components/work/workHeader";
-import { WorkIntro } from "@/app/_components/work/workIntro";
-import { WorkWorkwise } from "@/app/_components/work/workWorkwise";
+import { WorkSection } from "@/app/_components/work/workSection";
 
 const Work = () => {
   return (
     <section>
       <WorkHeader />
 
-      {/* <WorkIntro /> */}
-
-      <WorkWorkwise />
+      {WORK_DATA.map((sectionData) => (
+        <WorkSection {...sectionData} />
+      ))}
     </section>
   );
 };
