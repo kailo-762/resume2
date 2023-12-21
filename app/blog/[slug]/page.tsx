@@ -8,7 +8,6 @@ import {
 } from "@/app/_utils/readMarkdownFiles";
 import { getIconFromTagName } from "@/app/_utils/tagNameToIconMap";
 import { BlogStickyHeader } from "@/app/_components/blog/blogStickyHeader";
-import komorebi from "@/public/images/home/komorebi.jpeg";
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const { metadata, content } = readMarkdownFile(

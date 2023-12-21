@@ -1,5 +1,11 @@
+import Link from "next/link";
+
 const Memories = () => {
-  return <p>memories</p>;
+  return (
+    <>
+      <Link href="/memories/morocco23">Marokko</Link>
+    </>
+  );
 };
 
 export default Memories;
