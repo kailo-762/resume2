@@ -27,6 +27,7 @@ export const IntroFooter = () => {
           className={`flex w-1/${numberOfSocialNetworks} items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all`}
           rel="noopener noreferrer"
           target="_blank"
+          key={socialNetwork.name}
           href={socialNetwork.link}
         >
           <ArrowIcon />

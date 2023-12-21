@@ -133,6 +133,10 @@ table {
   text-wrap: balance;
 }
 
+.markdown-content {
+  @apply my-10;
+}
+
 .markdown-content p,
 .markdown-content li,
 .markdown-content h1,
@@ -146,15 +150,15 @@ table {
 }
 
 .markdown-content h1 {
-  @apply text-4xl;
+  @apply text-4xl my-8;
 }
 
 .markdown-content h2 {
-  @apply text-3xl;
+  @apply text-3xl my-7;
 }
 
 .markdown-content h3 {
-  @apply text-2xl;
+  @apply text-2xl my-6;
 }
 
 .markdown-content h4 {

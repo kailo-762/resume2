@@ -24,7 +24,7 @@ const markdownFilesDirectory = path.join(process.cwd(), "app/_markdownFiles/");
 
 type GetSortedMarkdownData = {
   id: string;
-  matterResultData: Record<string, string>;
+  matterResultData: Record<string, string | string[]>;
 };
 
 export const getSortedMarkdownData = (): GetSortedMarkdownData[] => {

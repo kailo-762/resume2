@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { ReactNode } from "react";
 import "./globals.css";
 
 import { Navbar } from "@/app/_components/navbar";
-import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Kai Jonas",

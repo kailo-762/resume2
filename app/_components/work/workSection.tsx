@@ -16,12 +16,10 @@ export const WorkSection = ({
   outroText,
 }: WorkSectionProps) => {
   return (
-    <div>
+    <div key={companyName}>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
 
-      <h2
-        className={`font-medium text-xl mb-1 tracking-tighter text-${headingColor}-700`}
-      >
+      <h2 className={`font-medium text-xl mb-1 tracking-tighter text-blue-700`}>
         {companyName}
       </h2>
 
@@ -35,7 +33,7 @@ export const WorkSection = ({
 
         <p className="text-sm mb-4">
           {listElements.map((element) => (
-            <li>{element}</li>
+            <li key={`${companyName}-${element}`}>{element}</li>
           ))}
         </p>
       </div>

@@ -4,6 +4,7 @@ import { motion, LayoutGroup } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
+import { useReportWebVitals } from "next/web-vitals";
 
 const navItems = {
   "/": {
@@ -20,7 +21,19 @@ const navItems = {
   },
 };
 
-export function Navbar() {
+export const Navbar = () => {
+  const pathname = usePathname();
+
+  const isBlogPage = pathname.includes("/blog/");
+
+  useReportWebVitals((metric) => console.log({ metric }));
+
+  // --- RENDER ---
+
+  if (isBlogPage) {
+    return null;
+  }
+
   return (
     <aside className="-ml-[8px] mb-4 tracking-tight">
       <div className="lg:sticky lg:top-20">
@@ -31,9 +44,9 @@ export function Navbar() {
           >
             <div className="flex flex-row space-x-0 pr-10">
               <Suspense fallback={null}>
-                {Object.entries(navItems).map(([path, { name }]) => {
-                  return <NavItem key={path} path={path} name={name} />;
-                })}
+                {Object.entries(navItems).map(([path, { name }]) => (
+                  <NavItem key={path} path={path} name={name} />
+                ))}
               </Suspense>
             </div>
           </nav>
@@ -41,16 +54,19 @@ export function Navbar() {
       </div>
     </aside>
   );
-}
+};
 
-let cx = (...classes: any) => classes.filter(Boolean).join(" ");
+const cx = (...classes: any) => classes.filter(Boolean).join(" ");
 
-function NavItem({ path, name }: { path: string; name: string }) {
+const NavItem = ({ path, name }: { path: string; name: string }) => {
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog/")) {
     pathname = "/blog";
   }
+
   let isActive = path === pathname;
+
+  // --- RENDER ---
 
   return (
     <Link
@@ -80,4 +96,4 @@ function NavItem({ path, name }: { path: string; name: string }) {
       </span>
     </Link>
   );
-}
+};

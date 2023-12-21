@@ -5,7 +5,7 @@ export const WORK_DATA: WorkSectionProps[] = [
     companyName: "Workwise",
     headingColor: "blue",
     introText:
-      "In 2018, I joined OBI next to plan a new flagship store in Cologne.",
+      "In 2019, I joined Workwise as an intern, with an interest in frontend development (and a slight aversion of PowerPoint). This journey brought me from intern to frontend techlead. Now, at Workwise, are on a mission to help fill 1.000.000 jobs.",
     listElements: [
       "Building features with TypeScript, NextJS, React, Redux, xState and more.",
       "Working closely with designers and product managers in discovery meetings.",
@@ -22,7 +22,7 @@ export const WORK_DATA: WorkSectionProps[] = [
     companyName: "OBI next",
     headingColor: "green",
     introText:
-      "In 2019, I joined Workwise as an intern, with an interest in frontend development (and a slight aversion of PowerPoint). This journey brought me from intern to frontend techlead. Now, at Workwise, are on a mission to help fill 1.000.000 jobs.",
+      "In 2018, I joined OBI next to plan a new flagship store in Cologne.",
     listElements: [
       "Developing of innovative and new offers.",
       "Preparing of presentations for various target groups: store employee to executive board.",

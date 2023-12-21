@@ -1,10 +1,14 @@
+import { notFound } from "next/dist/client/components/not-found";
+
 import { BlogContent } from "@/app/_components/blog/blogContent";
 import {
   getAllPostIds,
   parseMarkdownToHTML,
   readMarkdownFile,
 } from "@/app/_utils/readMarkdownFiles";
-import { notFound } from "next/dist/client/components/not-found";
+import { getIconFromTagName } from "@/app/_utils/tagNameToIconMap";
+import { BlogStickyHeader } from "@/app/_components/blog/blogStickyHeader";
+import komorebi from "@/public/images/home/komorebi.jpeg";
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const { metadata, content } = readMarkdownFile(
@@ -18,6 +22,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       ? metadata.date.toLocaleString()
       : metadata.date;
 
+  const tags = metadata.tags?.map((tag) => getIconFromTagName(tag));
+
   // --- RENDER ---
 
   if (!content) {
@@ -26,8 +32,11 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <h1>{metadata.title}</h1>
-      <p>Date: {formattedDate}</p>
+      <BlogStickyHeader
+        title={metadata.title}
+        tags={tags}
+        date={formattedDate}
+      />
 
       <BlogContent htmlContent={htmlContent} />
     </div>
