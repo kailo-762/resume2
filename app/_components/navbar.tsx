@@ -4,7 +4,6 @@ import { motion, LayoutGroup } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
-import { useReportWebVitals } from "next/web-vitals";
 
 const navItems = {
   "/": {
@@ -25,8 +24,6 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   const isBlogPage = pathname.includes("/blog/");
-
-  useReportWebVitals((metric) => console.log({ metric }));
 
   // --- RENDER ---
 

@@ -2,6 +2,7 @@ import { WorkSectionProps } from "@/app/_components/work/workSection";
 
 export const WORK_DATA: WorkSectionProps[] = [
   {
+    borderClassName: "border-t-2 border-blue-500 my-8",
     companyName: "Workwise",
     headingColor: "blue",
     introText:
@@ -19,6 +20,7 @@ export const WORK_DATA: WorkSectionProps[] = [
       "Workwise has been a wild ride, from clueless intern to leading the frontend team. Excited for what's next!",
   },
   {
+    borderClassName: "border-t-2 border-green-500 my-8",
     companyName: "OBI next",
     headingColor: "green",
     introText:
@@ -31,6 +33,7 @@ export const WORK_DATA: WorkSectionProps[] = [
     position: "intern retail experience transformation",
   },
   {
+    borderClassName: "border-t-2 border-purple-500 my-8",
     companyName: "Cybex",
     headingColor: "purple",
     introText: "In 2017, I joined Cybex GmbH to support the sales team",

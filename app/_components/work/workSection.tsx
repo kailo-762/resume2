@@ -1,6 +1,7 @@
 export type WorkSectionProps = {
   companyName: string;
   headingColor: string;
+  borderClassName: string;
   position: string;
   introText: string;
   listElements: string[];
@@ -9,6 +10,7 @@ export type WorkSectionProps = {
 
 export const WorkSection = ({
   companyName,
+  borderClassName,
   headingColor,
   introText,
   listElements,
@@ -17,9 +19,11 @@ export const WorkSection = ({
 }: WorkSectionProps) => {
   return (
     <div key={companyName}>
-      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
+      <hr className={borderClassName} />
 
-      <h2 className={`font-medium text-xl mb-1 tracking-tighter text-blue-700`}>
+      <h2
+        className={`font-medium text-xl mb-1 tracking-tighter text-${headingColor}-700`}
+      >
         {companyName}
       </h2>
 
