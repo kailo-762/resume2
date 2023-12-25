@@ -18,17 +18,35 @@ const Morocco23 = () => {
   return (
     <>
       <div className="py-6">
-        <h1 className="text-4xl mb-4 font-bold text-red-500">
-          MAROOOOOKKKKO 2023
-        </h1>
-        <p className="mb-4 text-base text-gray-600">
-          Im Jahre 2023 begaben sich 7 Typen auf den Weg die Wüste zu
-          durchqueren. Im Jahre 2023 begaben sich 7 Typen auf den Weg die Wüste
-          zu durchqueren. Im Jahre 2023 begaben sich 7 Typen auf den Weg die
-          Wüste zu durchqueren. Im Jahre 2023 begaben sich 7 Typen auf den Weg
-          die Wüste zu durchqueren. Im Jahre 2023 begaben sich 7 Typen auf den
-          Weg die Wüste zu durchqueren.
+        <h1 className="text-4xl mb-4 font-bold text-white-500">Marokko 2023</h1>
+
+        <p className="mb-4 text-base text-white-600">
+          Am 01.10 war es endlich soweit, der lange geplante und ausgiebig
+          diskutierte Trip nach Marokko begann. Die sieben Freunde Nicolai,
+          Sebastian, Simon, Stephen, Jakob, Felix und Kai traten die Reise vom
+          Flughafen in Baden-Baden an. Ankunft in Marokko war gegen 0:30Uhr
+          Ortszeit und nachdem ein freundlicher Taxi Fahrer uns in unsere
+          Unterkunft in Fes fuhr, nebenbei noch beim Öffnen der Tür half, die
+          ersten Shotguns auf Schlafmöglichkeiten ausgingen, sich 1l Wasser zu
+          7. geteilt wurde, waren alle Freunde erschöpft, aber glücklich
+          angekommen.
         </p>
+
+        <div className="relative h-80 mb-4">
+          <Image
+            alt="Komorebi"
+            src={komorebi}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg"
+          />
+        </div>
+
+        <p className="mb-4 text-base text-white-600 font-bold">
+          Tag 1: 02.10.: Ankommen im Marroc Land
+        </p>
+
+        <p className="mb-4 text-base text-white-600">BLABLABLA</p>
 
         <div className="relative h-80 mb-4">
           <Image
