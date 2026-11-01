@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 import mafia from "@/public/images/home/mafia.jpeg";
 import beer from "@/public/images/home/beer.jpg";
@@ -12,134 +12,98 @@ import luigi from "@/public/images/home/luigi.jpg";
 import sven from "@/public/images/home/sven.jpg";
 import komorebi from "@/public/images/home/komorebi.jpeg";
 
-export const IntroImageSection = () => {
-  // --- RENDER ---
+const columnImageSizes = "(max-width: 768px) 50vw, 33vw";
 
+type GalleryImageProps = {
+  alt: string;
+  src: StaticImageData;
+  className?: string;
+  containerClassName: string;
+  priority?: boolean;
+};
+
+const GalleryImage = ({
+  alt,
+  src,
+  className = "rounded-lg object-cover",
+  containerClassName,
+  priority = false,
+}: GalleryImageProps) => (
+  <div className={containerClassName}>
+    <Image
+      alt={alt}
+      src={src}
+      fill
+      sizes={columnImageSizes}
+      priority={priority}
+      className={className}
+    />
+  </div>
+);
+
+export const IntroImageSection = () => {
   return (
     <div className="columns-2 sm:columns-3 gap-4 my-8">
-      <div className="relative h-40 mb-4">
-        <Image
-          alt="Me speaking on stage at React Summit about the future of Next.js"
-          src={mafia}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-      <div className="relative h-80 mb-4 sm:mb-0">
-        <Image
-          alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
-          src={hike}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover object-[-16px] sm:object-center"
-        />
-      </div>
-      <div className="relative h-40 sm:h-80 sm:mb-4">
-        <Image
-          alt="Me standing on stage at Reactathon delivering the keynote"
-          src={sven}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover object-top sm:object-center"
-        />
-      </div>
-      <div className="relative h-40 mb-4 sm:mb-0">
-        <Image
-          alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-          src={luigi}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-      <div className="relative h-40 mb-4">
-        <Image
-          alt="Brille"
-          src={brille}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-      <div className="relative h-80">
-        <Image
-          alt="My badge on top of a pile of badges from a Vercel meetup we held"
-          src={snow}
-          fill
-          sizes="(min-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-
-      <div className="relative h-40 mb-4">
-        <Image
-          alt="Me speaking on stage at React Summit about the future of Next.js"
-          src={beer}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-      <div className="relative h-80 mb-4 sm:mb-0">
-        <Image
-          alt="Sandro Big"
-          src={sandro}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover object-[-16px] sm:object-center"
-        />
-      </div>
-      <div className="relative h-40 sm:h-80 sm:mb-4">
-        <Image
-          alt="Halbmara"
-          src={halbmara}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover object-top sm:object-center"
-        />
-      </div>
-      {/* <div className="relative h-40 mb-4 sm:mb-0">
-        <Image
-          alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-          src={sandro}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div> */}
-      <div className="relative h-40 sm:h-80 sm:mb-4">
-        <Image
-          alt="Komorebi"
-          src={komorebi}
-          fill
-          sizes="(max-width: 768px) 213px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-
-      {/* before: 58.1kb, 566ms */}
-      <div className="relative h-80">
-        <Image
-          alt="My badge on top of a pile of badges from a Vercel meetup we held"
-          src={climb}
-          fill
-          sizes="(min-width: 768px) 23px, 33vw"
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
+      <GalleryImage
+        alt="Me speaking on stage at React Summit about the future of Next.js"
+        src={mafia}
+        containerClassName="relative h-40 mb-4"
+        priority
+      />
+      <GalleryImage
+        alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
+        src={hike}
+        containerClassName="relative h-80 mb-4 sm:mb-0"
+        className="rounded-lg object-cover object-[-16px] sm:object-center"
+      />
+      <GalleryImage
+        alt="Me standing on stage at Reactathon delivering the keynote"
+        src={sven}
+        containerClassName="relative h-40 sm:h-80 sm:mb-4"
+        className="rounded-lg object-cover object-top sm:object-center"
+      />
+      <GalleryImage
+        alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
+        src={luigi}
+        containerClassName="relative h-40 mb-4 sm:mb-0"
+      />
+      <GalleryImage
+        alt="Brille"
+        src={brille}
+        containerClassName="relative h-40 mb-4"
+      />
+      <GalleryImage
+        alt="My badge on top of a pile of badges from a Vercel meetup we held"
+        src={snow}
+        containerClassName="relative h-80"
+      />
+      <GalleryImage
+        alt="Me speaking on stage at React Summit about the future of Next.js"
+        src={beer}
+        containerClassName="relative h-40 mb-4"
+      />
+      <GalleryImage
+        alt="Sandro Big"
+        src={sandro}
+        containerClassName="relative h-80 mb-4 sm:mb-0"
+        className="rounded-lg object-cover object-[-16px] sm:object-center"
+      />
+      <GalleryImage
+        alt="Halbmara"
+        src={halbmara}
+        containerClassName="relative h-40 sm:h-80 sm:mb-4"
+        className="rounded-lg object-cover object-top sm:object-center"
+      />
+      <GalleryImage
+        alt="Komorebi"
+        src={komorebi}
+        containerClassName="relative h-40 sm:h-80 sm:mb-4"
+      />
+      <GalleryImage
+        alt="Climbing"
+        src={climb}
+        containerClassName="relative h-80"
+      />
     </div>
   );
 };

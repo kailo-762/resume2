@@ -40,8 +40,7 @@ export const RotatingImage = ({ src }: RotatingImageProps) => {
         alt="A rotating image"
         src={src}
         fill
-        sizes="(max-width: 768px) 213px, 33vw"
-        priority
+        sizes="80px"
         className="object-cover w-full h-full rounded-full"
       />
     </motion.div>

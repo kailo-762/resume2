@@ -37,6 +37,12 @@ Dev: [http://localhost:3000](http://localhost:3000)
 - **Lint:** ESLint 9 + `eslint-config-next`
 - **`overrides.minimatch`:** pins a patched `minimatch` for the ESLint toolchain until upstream plugins update; required for a clean `npm audit`
 
+## Images
+
+- Home and trip galleries use `next/image` with lazy loading (except one above-the-fold home photo).
+- Trip photos live under `public/images/`; Next serves AVIF/WebP variants when possible (`images.formats` in `next.config.js`).
+- Large originals still slow first deploy; compress sources in `public/images/` when adding new albums.
+
 ## Deploy
 
 Build with `npm run build`, then run `npm run start` or deploy to any Node host (e.g. [Vercel](https://vercel.com/)).
