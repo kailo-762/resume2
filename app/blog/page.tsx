@@ -7,8 +7,6 @@ import { getIconFromTagName } from "@/app/_utils/tagNameToIconMap";
 const Blog = () => {
   const markdownData = getSortedMarkdownData();
 
-  console.log(markdownData);
-
   // --- RENDER ---
 
   return (
