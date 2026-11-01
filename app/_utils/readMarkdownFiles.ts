@@ -1,9 +1,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import remarkHtml from "remark-html";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypePrism from "rehype-prism-plus";
+import rehypeStringify from "rehype-stringify";
 
 export const readMarkdownFile = (fileName: string) => {
   const filePath = path.join(process.cwd(), fileName);
@@ -15,7 +17,9 @@ export const readMarkdownFile = (fileName: string) => {
 export const parseMarkdownToHTML = (markdownContent: string) => {
   const result = unified()
     .use(remarkParse)
-    .use(remarkHtml)
+    .use(remarkRehype)
+    .use(rehypePrism, { ignoreMissing: true })
+    .use(rehypeStringify)
     .processSync(markdownContent);
   return result.toString();
 };
@@ -28,13 +32,14 @@ type GetSortedMarkdownData = {
 };
 
 export const getSortedMarkdownData = (): GetSortedMarkdownData[] => {
-  const fileNames = fs.readdirSync(markdownFilesDirectory);
+  const fileNames = fs
+    .readdirSync(markdownFilesDirectory)
+    .filter((fileName) => fileName.endsWith(".md"));
+
   const allPostsData: GetSortedMarkdownData[] = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, "");
-
     const fullPath = path.join(markdownFilesDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
-
     const matterResult = matter(fileContents);
 
     return {
@@ -51,13 +56,13 @@ export const getSortedMarkdownData = (): GetSortedMarkdownData[] => {
 };
 
 export const getAllPostIds = () => {
-  const fileNames = fs.readdirSync(markdownFilesDirectory);
+  const fileNames = fs
+    .readdirSync(markdownFilesDirectory)
+    .filter((fileName) => fileName.endsWith(".md"));
 
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
-    };
-  });
+  return fileNames.map((fileName) => ({
+    params: {
+      id: fileName.replace(/\.md$/, ""),
+    },
+  }));
 };

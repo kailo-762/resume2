@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { BlogContent } from "@/app/_components/blog/blogContent";
@@ -6,19 +7,45 @@ import {
   parseMarkdownToHTML,
   readMarkdownFile,
 } from "@/app/_utils/readMarkdownFiles";
-import { TagIcon } from "@/app/_utils/tagNameToIconMap";
 import { BlogStickyHeader } from "@/app/_components/blog/blogStickyHeader";
 
-export default async function BlogPost({
-  params,
-}: {
+type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
-}) {
+};
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
 
-  const { metadata, content } = readMarkdownFile(
-    `app/_markdownFiles/${slug}.md`
-  );
+  try {
+    const { metadata } = readMarkdownFile(`app/_markdownFiles/${slug}.md`);
+    return {
+      title: String(metadata.title ?? slug),
+      description: String(metadata.summary ?? ""),
+    };
+  } catch {
+    return { title: "Post not found" };
+  }
+}
+
+export default async function BlogPost({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+
+  let metadata: Record<string, unknown>;
+  let content: string;
+
+  try {
+    const file = readMarkdownFile(`app/_markdownFiles/${slug}.md`);
+    metadata = file.metadata;
+    content = file.content;
+  } catch {
+    notFound();
+  }
+
+  if (!content) {
+    notFound();
+  }
 
   const htmlContent = parseMarkdownToHTML(content);
 
@@ -31,16 +58,10 @@ export default async function BlogPost({
     ? (metadata.tags as string[])
     : undefined;
 
-  // --- RENDER ---
-
-  if (!content) {
-    notFound();
-  }
-
   return (
     <div>
       <BlogStickyHeader
-        title={metadata.title}
+        title={String(metadata.title ?? "")}
         tags={tags}
         date={formattedDate}
       />

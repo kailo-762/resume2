@@ -1,7 +1,4 @@
-"use client";
-
 import { RotatingImage } from "@/app/_components/rotatingImage";
-import React from "react";
 
 import kai from "@/public/images/home/KaiBW.jpg";
 

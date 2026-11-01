@@ -2,10 +2,12 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
-    </div>
+    <section className="prose prose-neutral dark:prose-invert">
+      <h1 className="font-medium text-2xl tracking-tighter">Page not found</h1>
+      <p>That URL does not match anything on this site.</p>
+      <Link href="/" className="text-blue-500 hover:text-blue-700">
+        Back to home
+      </Link>
+    </section>
   );
 }

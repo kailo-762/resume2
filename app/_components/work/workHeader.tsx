@@ -1,5 +1,3 @@
-"use client";
-
 import { RotatingImage } from "@/app/_components/rotatingImage";
 import kai from "@/public/images/home/KaiBW.jpg";
 

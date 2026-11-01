@@ -33,7 +33,7 @@ Dev: [http://localhost:3000](http://localhost:3000)
 
 ## Dependencies
 
-- **Runtime:** Next 16, React 19, Framer Motion, Geist font, markdown via `gray-matter` + `remark` + `unified`
+- **Runtime:** Next 16, React 19, Framer Motion (rotating avatar only), Geist font, markdown via `gray-matter` + `remark`/`rehype` (code highlighting at build time)
 - **Lint:** ESLint 9 + `eslint-config-next`
 - **`overrides.minimatch`:** pins a patched `minimatch` for the ESLint toolchain until upstream plugins update; required for a clean `npm audit`
 

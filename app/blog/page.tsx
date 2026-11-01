@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { BlogHeader } from "@/app/_components/blog/blogHeader";
 import { getSortedMarkdownData } from "@/app/_utils/readMarkdownFiles";
 import { TagIcon } from "@/app/_utils/tagNameToIconMap";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Articles on frontend development, Redux, and related topics.",
+};
 
 const Blog = () => {
   const markdownData = getSortedMarkdownData();
