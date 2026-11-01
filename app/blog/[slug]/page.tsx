@@ -1,4 +1,4 @@
-import { notFound } from "next/dist/client/components/not-found";
+import { notFound } from "next/navigation";
 
 import { BlogContent } from "@/app/_components/blog/blogContent";
 import {
@@ -9,9 +9,15 @@ import {
 import { getIconFromTagName } from "@/app/_utils/tagNameToIconMap";
 import { BlogStickyHeader } from "@/app/_components/blog/blogStickyHeader";
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
   const { metadata, content } = readMarkdownFile(
-    `app/_markdownFiles/${params.slug}.md`
+    `app/_markdownFiles/${slug}.md`
   );
 
   const htmlContent = parseMarkdownToHTML(content);

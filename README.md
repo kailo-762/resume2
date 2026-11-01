@@ -1,27 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Kai Jonas — personal site
 
-## Getting Started
+Portfolio and blog built with [Next.js](https://nextjs.org/) (App Router), React, Tailwind CSS, and markdown posts under `app/_markdownFiles/`.
 
-First, run the development server:
+## Requirements
+
+- [Node.js](https://nodejs.org/) **20.9+** (see `engines` in `package.json`)
+
+## Setup
 
 ```bash
-npm run dev
-# # or
-# yarn dev
-# # or
-# pnpm dev
-# # or
-# bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Direct dependencies are **exact version pins** (no `^` or `~`). After changing versions, run `npm install` and commit `package-lock.json`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command        | Description              |
+| -------------- | ------------------------ |
+| `npm run dev`  | Dev server (Turbopack)   |
+| `npm run build`| Production build         |
+| `npm run start`| Serve production build   |
+| `npm run lint` | ESLint (flat config)     |
 
-## Deploy on Vercel
+Dev: [http://localhost:3000](http://localhost:3000)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `app/` — routes and UI (`page.tsx`, `layout.tsx`, blog, work, trips)
+- `public/images/` — static images
+- `app/_markdownFiles/` — blog post sources (`.md`)
+
+## Dependencies
+
+- **Runtime:** Next 16, React 19, Framer Motion, Geist font, markdown via `gray-matter` + `remark` + `unified`
+- **Lint:** ESLint 9 + `eslint-config-next`
+- **`overrides.minimatch`:** pins a patched `minimatch` for the ESLint toolchain until upstream plugins update; required for a clean `npm audit`
+
+## Deploy
+
+Build with `npm run build`, then run `npm run start` or deploy to any Node host (e.g. [Vercel](https://vercel.com/)).

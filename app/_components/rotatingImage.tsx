@@ -1,3 +1,5 @@
+"use client";
+
 import { Variants, motion } from "framer-motion";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
