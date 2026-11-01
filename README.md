@@ -12,16 +12,18 @@ Portfolio and blog built with [Next.js](https://nextjs.org/) (App Router), React
 npm install
 ```
 
-Direct dependencies are **exact version pins** (no `^` or `~`). After changing versions, run `npm install` and commit `package-lock.json`.
+Direct dependencies are **exact version pins** (no `^` or `~`). Prettier uses Workwise-style options (4-space indent, 120 cols, Tailwind class sorting via `prettier-plugin-tailwindcss` + `app/globals.css`). After changing versions, run `npm install` and commit `package-lock.json`.
 
 ## Scripts
 
-| Command        | Description              |
-| -------------- | ------------------------ |
-| `npm run dev`  | Dev server (Turbopack)   |
-| `npm run build`| Production build         |
-| `npm run start`| Serve production build   |
-| `npm run lint` | ESLint (flat config)     |
+| Command                | Description            |
+| ---------------------- | ---------------------- |
+| `npm run dev`          | Dev server (Turbopack) |
+| `npm run build`        | Production build       |
+| `npm run start`        | Serve production build |
+| `npm run lint`         | ESLint (flat config)   |
+| `npm run format`       | Prettier (write)       |
+| `npm run format:check` | Prettier (check only)  |
 
 Dev: [http://localhost:3000](http://localhost:3000)
 

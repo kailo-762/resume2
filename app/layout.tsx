@@ -7,37 +7,36 @@ import "./globals.css";
 import { Navbar } from "@/app/_components/navbar";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Kai Jonas",
-    template: "%s · Kai Jonas",
-  },
-  description:
-    "Frontend developer in Karlsruhe — portfolio, work history, blog, and travel notes.",
+    title: {
+        default: "Kai Jonas",
+        template: "%s · Kai Jonas",
+    },
+    description: "Frontend developer in Karlsruhe — portfolio, work history, blog, and travel notes.",
 };
 
 const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 type RootLayoutProps = {
-  children: ReactNode;
+    children: ReactNode;
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  return (
-    <html
-      lang="en"
-      className={cx(
-        "text-black bg-white dark:text-white dark:bg-[#111010]",
-        GeistSans.variable,
-        GeistMono.variable
-      )}
-    >
-      <body className="antialiased max-w-3xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
+    return (
+        <html
+            lang="en"
+            className={cx(
+                "bg-white text-black dark:bg-[#111010] dark:text-white",
+                GeistSans.variable,
+                GeistMono.variable
+            )}
+        >
+            <body className="mx-4 mb-40 mt-8 flex max-w-3xl flex-col antialiased md:flex-row lg:mx-auto">
+                <main className="mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0">
+                    <Navbar />
 
-          {children}
-        </main>
-      </body>
-    </html>
-  );
+                    {children}
+                </main>
+            </body>
+        </html>
+    );
 }

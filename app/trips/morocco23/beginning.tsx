@@ -16,50 +16,32 @@ ersten Shotguns auf Schlafmöglichkeiten ausgingen, sich 1l Wasser zu 7.
 geteilt wurde, waren alle Freunde erschöpft, aber glücklich angekommen.`;
 
 type TripSectionProps = {
-  title: string;
-  sectionLabel: string;
-  images: string[] | null;
+    title: string;
+    sectionLabel: string;
+    images: string[] | null;
 };
 
 const TripSection = ({ title, sectionLabel, images }: TripSectionProps) => (
-  <>
-    <div className="mb-8 border-t-2 border-gray-300" />
-    <h3 className="text-2xl mb-4 font-bold text-white-500">{title}</h3>
-    <p className="mb-4 text-base text-white-600">{SECTION_COPY}</p>
-    {images?.length ? (
-      <TripPhotoGrid images={images} sectionLabel={sectionLabel} />
-    ) : null}
-  </>
+    <>
+        <div className="mb-8 border-t-2 border-gray-300" />
+        <h3 className="text-white-500 mb-4 text-2xl font-bold">{title}</h3>
+        <p className="text-white-600 mb-4 text-base">{SECTION_COPY}</p>
+        {images?.length ? <TripPhotoGrid images={images} sectionLabel={sectionLabel} /> : null}
+    </>
 );
 
 export const MoroccoBeginning = () => {
-  const airportImages = getImagesInDirectory(IMG_DIRECTORY_AIRPORT);
-  const toOaseImages = getImagesInDirectory(IMG_DIRECTORY_TO_OASE);
-  const oaseImages = getImagesInDirectory(IMG_DIRECTORY_OASE);
-  const afterOaseImages = getImagesInDirectory(IMG_DIRECTORY_AFTER_OASE);
+    const airportImages = getImagesInDirectory(IMG_DIRECTORY_AIRPORT);
+    const toOaseImages = getImagesInDirectory(IMG_DIRECTORY_TO_OASE);
+    const oaseImages = getImagesInDirectory(IMG_DIRECTORY_OASE);
+    const afterOaseImages = getImagesInDirectory(IMG_DIRECTORY_AFTER_OASE);
 
-  return (
-    <div>
-      <TripSection
-        title="Zum Flughafen"
-        sectionLabel="Zum Flughafen"
-        images={airportImages}
-      />
-      <TripSection
-        title="Auf dem Weg zur Oase"
-        sectionLabel="Auf dem Weg zur Oase"
-        images={toOaseImages}
-      />
-      <TripSection
-        title="Oase Seele baumeln lassen"
-        sectionLabel="Oase"
-        images={oaseImages}
-      />
-      <TripSection
-        title="Auf dem Weg in die Wüschde"
-        sectionLabel="Wüste"
-        images={afterOaseImages}
-      />
-    </div>
-  );
+    return (
+        <div>
+            <TripSection title="Zum Flughafen" sectionLabel="Zum Flughafen" images={airportImages} />
+            <TripSection title="Auf dem Weg zur Oase" sectionLabel="Auf dem Weg zur Oase" images={toOaseImages} />
+            <TripSection title="Oase Seele baumeln lassen" sectionLabel="Oase" images={oaseImages} />
+            <TripSection title="Auf dem Weg in die Wüschde" sectionLabel="Wüste" images={afterOaseImages} />
+        </div>
+    );
 };

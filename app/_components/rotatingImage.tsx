@@ -6,43 +6,43 @@ import Image from "next/image";
 import { useState } from "react";
 
 type RotatingImageProps = {
-  src: string | StaticImport;
+    src: string | StaticImport;
 };
 
 export const RotatingImage = ({ src }: RotatingImageProps) => {
-  // --- STATE ---
+    // --- STATE ---
 
-  const [interactionCount, setInteractionCount] = useState(0);
+    const [interactionCount, setInteractionCount] = useState(0);
 
-  // --- HELPERS ---
+    // --- HELPERS ---
 
-  const containerVariants: Variants = {
-    initial: { rotate: 0 },
-    hover: { rotate: interactionCount % 2 === 0 ? -360 : 360 },
-  };
+    const containerVariants: Variants = {
+        initial: { rotate: 0 },
+        hover: { rotate: interactionCount % 2 === 0 ? -360 : 360 },
+    };
 
-  const handleInteraction = () => {
-    setInteractionCount((prevCount) => prevCount + 1);
-  };
+    const handleInteraction = () => {
+        setInteractionCount((prevCount) => prevCount + 1);
+    };
 
-  // --- RENDER ---
+    // --- RENDER ---
 
-  return (
-    <motion.div
-      className="relative h-20 w-20 mb-4 rounded-full overflow-hidden transition-transform duration-300 ease-in-out"
-      whileHover="hover"
-      whileTap="hover"
-      variants={containerVariants}
-      onHoverStart={handleInteraction}
-      onTap={handleInteraction}
-    >
-      <Image
-        alt="A rotating image"
-        src={src}
-        fill
-        sizes="80px"
-        className="object-cover w-full h-full rounded-full"
-      />
-    </motion.div>
-  );
+    return (
+        <motion.div
+            className="relative mb-4 h-20 w-20 overflow-hidden rounded-full transition-transform duration-300 ease-in-out"
+            whileHover="hover"
+            whileTap="hover"
+            variants={containerVariants}
+            onHoverStart={handleInteraction}
+            onTap={handleInteraction}
+        >
+            <Image
+                alt="A rotating image"
+                src={src}
+                fill
+                sizes="80px"
+                className="h-full w-full rounded-full object-cover"
+            />
+        </motion.div>
+    );
 };
