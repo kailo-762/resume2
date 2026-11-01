@@ -1,12 +1,12 @@
-"use client";
-
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 
+import { TagIcon } from "@/app/_utils/tagNameToIconMap";
+
 type BlogStickyHeaderProps = {
   title: string;
-  tags: any;
-  date: any;
+  tags?: string[];
+  date: string;
 };
 
 export const BlogStickyHeader = ({
@@ -25,7 +25,11 @@ export const BlogStickyHeader = ({
           {title}
         </h1>
 
-        <div className="hidden md:flex items-center gap-8">{tags}</div>
+        <div className="hidden md:flex items-center gap-8">
+          {tags?.map((tag) => (
+            <TagIcon key={tag} tag={tag} />
+          ))}
+        </div>
       </div>
 
       <div className="hidden md:flex justify-end mb-2">

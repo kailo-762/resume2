@@ -44,7 +44,9 @@ export const getSortedMarkdownData = (): GetSortedMarkdownData[] => {
   });
 
   return allPostsData.sort((a, b) => {
-    return a.date < b.date ? 1 : -1;
+    const dateA = String(a.matterResultData.date ?? "");
+    const dateB = String(b.matterResultData.date ?? "");
+    return dateA < dateB ? 1 : -1;
   });
 };
 

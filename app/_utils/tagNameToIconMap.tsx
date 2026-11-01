@@ -1,16 +1,22 @@
-import { SiTypescript } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
+import { SiNextdotjs, SiRedux, SiTypescript } from "react-icons/si";
 import { TbBrandJavascript } from "react-icons/tb";
-import { SiNextdotjs } from "react-icons/si";
-import { SiRedux } from "react-icons/si";
 
-export const getIconFromTagName = (tag: string) => {
-  const TAG_NAME_TO_ICON_MAP: Record<string, any> = {
-    typescript: <SiTypescript size={20} />,
-    react: <FaReact size={20} />,
-    javascript: <TbBrandJavascript size={20} />,
-    next: <SiNextdotjs size={20} />,
-    redux: <SiRedux size={20} />,
-  };
-  return TAG_NAME_TO_ICON_MAP[tag];
+const TAG_NAME_TO_ICON = {
+  typescript: SiTypescript,
+  react: FaReact,
+  javascript: TbBrandJavascript,
+  next: SiNextdotjs,
+  redux: SiRedux,
+} as const;
+
+type KnownTag = keyof typeof TAG_NAME_TO_ICON;
+
+export const TagIcon = ({ tag }: { tag: string }) => {
+  const Icon = TAG_NAME_TO_ICON[tag as KnownTag];
+  if (!Icon) {
+    return null;
+  }
+
+  return <Icon size={20} aria-hidden />;
 };

@@ -6,7 +6,7 @@ import {
   parseMarkdownToHTML,
   readMarkdownFile,
 } from "@/app/_utils/readMarkdownFiles";
-import { getIconFromTagName } from "@/app/_utils/tagNameToIconMap";
+import { TagIcon } from "@/app/_utils/tagNameToIconMap";
 import { BlogStickyHeader } from "@/app/_components/blog/blogStickyHeader";
 
 export default async function BlogPost({
@@ -25,9 +25,11 @@ export default async function BlogPost({
   const formattedDate =
     metadata.date instanceof Date
       ? metadata.date.toLocaleString()
-      : metadata.date;
+      : String(metadata.date ?? "");
 
-  const tags = metadata.tags?.map((tag) => getIconFromTagName(tag));
+  const tags = Array.isArray(metadata.tags)
+    ? (metadata.tags as string[])
+    : undefined;
 
   // --- RENDER ---
 

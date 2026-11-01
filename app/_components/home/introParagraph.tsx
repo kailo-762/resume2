@@ -4,7 +4,7 @@ import { Badge } from "@/app/_components/badge";
 
 export const IntroParagraph = () => {
   return (
-    <div w-full>
+    <div className="w-full">
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
         hey, I'm kai jonas 👋
       </h1>
@@ -15,6 +15,7 @@ export const IntroParagraph = () => {
           className="underline"
           href="https://www.fupa.net/player/kai-rauenbuehler-1707550"
           target="_blank"
+          rel="noopener noreferrer"
         >
           player
         </a>
@@ -31,6 +32,7 @@ export const IntroParagraph = () => {
           className="underline"
           href="https://www.google.com/maps/place/Karlsruhe"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Karlsruhe
         </a>

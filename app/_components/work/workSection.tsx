@@ -1,3 +1,9 @@
+const HEADING_COLOR_CLASS: Record<string, string> = {
+  blue: "text-blue-700",
+  green: "text-green-700",
+  purple: "text-purple-700",
+};
+
 export type WorkSectionProps = {
   companyName: string;
   headingColor: string;
@@ -17,12 +23,15 @@ export const WorkSection = ({
   position,
   outroText,
 }: WorkSectionProps) => {
+  const headingClassName =
+    HEADING_COLOR_CLASS[headingColor] ?? "text-neutral-700 dark:text-neutral-300";
+
   return (
-    <div key={companyName}>
+    <div>
       <hr className={borderClassName} />
 
       <h2
-        className={`font-medium text-xl mb-1 tracking-tighter text-${headingColor}-700`}
+        className={`font-medium text-xl mb-1 tracking-tighter ${headingClassName}`}
       >
         {companyName}
       </h2>
@@ -35,14 +44,14 @@ export const WorkSection = ({
       <div className="mt-4">
         <h3 className="text-md font-bold mb-2">typical days include:</h3>
 
-        <p className="text-sm mb-4">
+        <ul className="text-sm mb-4 list-disc pl-5 space-y-1">
           {listElements.map((element) => (
             <li key={`${companyName}-${element}`}>{element}</li>
           ))}
-        </p>
+        </ul>
       </div>
 
-      <p className="text-sm mt-4">{outroText}</p>
+      {outroText ? <p className="text-sm mt-4">{outroText}</p> : null}
     </div>
   );
 };

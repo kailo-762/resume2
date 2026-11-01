@@ -1,5 +1,3 @@
-"use client";
-
 import { Card } from "@/app/_components/card";
 import Link from "next/link";
 

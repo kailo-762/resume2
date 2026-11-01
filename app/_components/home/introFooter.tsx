@@ -16,15 +16,11 @@ const socialNetworks = [
 ];
 
 export const IntroFooter = () => {
-  const numberOfSocialNetworks = socialNetworks.length;
-
-  // --- RENDER ---
-
   return (
     <div className="flex">
       {socialNetworks.map((socialNetwork) => (
         <a
-          className={`flex w-1/${numberOfSocialNetworks} items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all`}
+          className="flex flex-1 items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
           rel="noopener noreferrer"
           target="_blank"
           key={socialNetwork.name}

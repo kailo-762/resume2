@@ -8,7 +8,7 @@ const Work = () => {
       <WorkHeader />
 
       {WORK_DATA.map((sectionData) => (
-        <WorkSection {...sectionData} />
+        <WorkSection key={sectionData.companyName} {...sectionData} />
       ))}
     </section>
   );
