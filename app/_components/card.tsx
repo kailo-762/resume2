@@ -14,7 +14,7 @@ export const Card = ({ imageUrl, title, description }: CardProps) => (
         loading="lazy"
         src={imageUrl}
         fill
-        sizes="(max-width: 768px) 240px, 320px"
+        sizes="(max-width: 640px) 45vw, 320px"
         className="rounded-t-lg object-cover"
         alt={title}
       />

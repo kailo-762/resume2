@@ -26,7 +26,9 @@ const TripSection = ({ title, sectionLabel, images }: TripSectionProps) => (
     <div className="mb-8 border-t-2 border-gray-300" />
     <h3 className="text-2xl mb-4 font-bold text-white-500">{title}</h3>
     <p className="mb-4 text-base text-white-600">{SECTION_COPY}</p>
-    <TripPhotoGrid images={images} sectionLabel={sectionLabel} />
+    {images?.length ? (
+      <TripPhotoGrid images={images} sectionLabel={sectionLabel} />
+    ) : null}
   </>
 );
 

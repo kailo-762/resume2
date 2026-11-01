@@ -12,7 +12,8 @@ import luigi from "@/public/images/home/luigi.jpg";
 import sven from "@/public/images/home/sven.jpg";
 import komorebi from "@/public/images/home/komorebi.jpeg";
 
-const columnImageSizes = "(max-width: 768px) 50vw, 33vw";
+const columnImageSizes =
+  "(max-width: 640px) 45vw, (max-width: 768px) 30vw, 240px";
 
 type GalleryImageProps = {
   alt: string;

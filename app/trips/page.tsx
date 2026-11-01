@@ -19,13 +19,13 @@ const Trips = () => {
         />
       </Link>
 
-      <Link href="/trips/mexico22">
+      <div className="opacity-60 cursor-not-allowed" aria-disabled="true">
         <Card
           imageUrl="https://images.unsplash.com/photo-1568402102990-bc541580b59f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWV4aWNvfGVufDB8fDB8fHww"
-          title="Mexico"
-          description="Mexico 2022 photo album."
+          title="Mexico (coming soon)"
+          description="Album not published yet."
         />
-      </Link>
+      </div>
     </div>
   );
 };
